@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsius Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            border-radius: 20px;
+            width: 80%;
+            height: 80vh;
+            background-color: rgb(176, 210, 255);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .top-section {
+            background-color: rgb(51, 173, 255);
+            width: 100%;
+            padding: 2%;
+        }
+
+        .calculating {
+            padding: 5vh 5%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 50%;
+        }
+
+        label {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 25px;
+        }
+
+        input {
+            height: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+        }
+
+        .result {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        p {
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+            <h1>Celsius To Fahrenheit</h1>
+        </div>
+        <div class="calculating">
+            <div class="1"><label for="celsius">Celsius: </label>
+            <input name="celsius" id="celsius" type="number"></div>
+            <div class="1"><label for="fahrenheit">Fahrenheit: </label>
+            <input name="fahrenheit" id="fahrenheit" type="number"></div>
+            
+            
+        </div>
+        <div class="result">
+            <h1>Result: </h1>
+            <p id="res"></p>
+        </div>
+    </div>
+    <script>
+        const celsius = document.getElementById("celsius");
+        const fahren = document.getElementById("fahrenheit");
+        const result = document.getElementById("res");
+
+        celsius.addEventListener("input", function() {
+            result.innerHTML = `${Number((Number(celsius.value) * 9/5) + 32).toFixed(2)}°F`
+            fahren.value = `${Number((Number(celsius.value) * 9/5) + 32).toFixed(2)}`
+        })
+
+        fahren.addEventListener("input", function() {
+            celsius.value = `${Number((Number(fahren.value) - 32) * 5/9).toFixed(2)}`
+            result.innerHTML = `${Number((Number(celsius.value) * 9/5) + 32).toFixed(2)}°F`
+        })
+
+        celsius.value = Number(prompt("Give the number for CELSIUS: "))
+        result.innerHTML = `${Number((Number(celsius.value) * 9/5) + 32).toFixed(2)}°F`
+        fahren.value = `${Number((Number(celsius.value) * 9/5) + 32).toFixed(2)}`
+    </script>
+</body>
+</html>
